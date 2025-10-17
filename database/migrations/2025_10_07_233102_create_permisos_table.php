@@ -9,11 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('permisos', function (Blueprint $table) {
             $table->id(); //primary key auto increment 
-            $table->string(column:'nombre');        
+            $table->string('nombre');        
             $table->timestamps(); //created_at y updated_at
             $table->softDeletes();
         });
@@ -22,7 +22,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('permisos');
     }

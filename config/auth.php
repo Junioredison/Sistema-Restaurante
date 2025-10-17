@@ -40,7 +40,27 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-    ],
+    
+
+        'Administrador' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    
+        'Mesero' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    
+    
+        'Cajero' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+   ],
+
+    
+
 
     /*
     |--------------------------------------------------------------------------
