@@ -25,7 +25,7 @@ class AuthController extends Controller
         ]);
        $user = User::where('username',$request->username)->first();
          if(! $user){
-            return back()->with('errorUser','Usuario no existe vuelve a intentarlo');
+            return back()->with('errorUser','Usuario incorrecto vuelve a intentarlo');
          }
             $credentials = $request->only('username', 'password');
             

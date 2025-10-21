@@ -23,7 +23,7 @@
                         <img src="{{ asset('storage/general/logo.png') }}" alt="Logo Tazón Criollo">
                     </div>
                 </div>
-                <h1>¡Bienvenido de nuevo!</h1>
+                <h1>LOGIN</h1>
                 <p>Inicia sesión para acceder con tu cuenta existente.</p>
             </div>
             
@@ -33,7 +33,7 @@
         <!-- Sección derecha del formulario -->
         <div class="right-section">
             <div class="form-container">
-                <h2>Iniciar Sesión</h2>
+                <h2>Inicia sesión</h2>
                   <!-- Sección iniciar sesion  del login -->
                 <form action="{{ route('sendlogin') }}" method="POST">
                     @csrf
@@ -65,10 +65,8 @@
                    @endif
 
                     <button type="submit" class="btn-login">Iniciar Sesión</button>
-
-                    <div class="register-link">
-                        ¿Nuevo aquí? <a href="#">Crear una Cuenta</a>
-                    </div>
+                    
+                    
                 </form>
 
                 <!-- FINAL Sección iniciar sesion  del login -->

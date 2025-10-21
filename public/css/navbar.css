@@ -1,4 +1,5 @@
-    * {
+/* === RESET GENERAL === */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,48 +7,80 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f5f5f5;
+  background-color: #faf7f3;
   color: #222;
+  overflow-x: hidden;
 }
 
-/* --- Header Logo --- */
+/* === HEADER SUPERIOR === */
 .top-header {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 15px 0;
+  background: linear-gradient(90deg, #b35b00, #e87b00);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .logo {
   height: 90px;
-  align-content: center;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  transition: transform 0.3s;
 }
 
-.logoCarrito{
-   height: 60px; 
+.logo:hover {
+  transform: scale(1.05);
 }
 
-/* --- Navbar --- */
+/* === NAVBAR === */
 .navbar {
-  display: flex; 
+  display: flex;
   align-items: center;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  padding: 10px 50px;
-  background-color: white;
+  justify-content: space-between;
+  padding: 15px 60px;
+  background-color: #fff;
+  border-bottom: 2px solid #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cart-icon {
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  padding: 10px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon:hover {
+  background-color: #fff3e0;
+  transform: scale(1.05);
+  border-color: #b35b00;
+}
+
+.logoCarrito {
+  height: 40px;
+  filter: brightness(0.9);
 }
 
 .navbar ul {
   display: flex;
   list-style: none;
   gap: 30px;
+  align-items: center;
 }
 
-.nav-ini{
-  padding: 50px;
+.nav-ini {
+  margin-left: 40px;
+  flex-wrap: wrap;
 }
-.nav-fin{
-   margin-left: auto;
+
+.nav-fin {
+  margin-left: auto;
 }
 
 .navbar a {
@@ -55,68 +88,124 @@ body {
   color: #333;
   font-weight: 500;
   position: relative;
-  padding-bottom: 5px;
+  transition: all 0.3s;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #b35b00;
+  transition: width 0.3s;
 }
 
 .navbar a:hover {
-  color: #000;
-  border-bottom: 2px solid #000;
+  color: #b35b00;
 }
 
-.cart-icon {
-  font-size: 22px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  padding: 10px;
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* === BOTÓN LOGOUT === */
+.logout-btn {
+  background-color: #b35b00;
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 6px;
   transition: all 0.3s;
+  font-weight: 500;
 }
 
-.cart-icon:hover {
-  background-color: #f0f0f0;
+.logout-btn:hover {
+  background-color: #8c4600;
+  box-shadow: 0 4px 10px rgba(179, 91, 0, 0.3);
+  transform: translateY(-2px);
 }
 
-/* --- Hero Section --- */
+/* === HERO === */
 .hero {
-
-  background-position: center;
-  height: 60vh;
+  height: 70vh;
+  margin: 25px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  margin: 20px 30px;
+  border-radius: 15px;
+  background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3)),
+    url('../storage/general/fondo.png') center/cover no-repeat;
   color: white;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  animation: fadeIn 1.2s ease;
 }
 
 .hero-content {
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 30px 50px;
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.45);
+  padding: 40px 60px;
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  animation: slideUp 1.5s ease;
 }
 
-.hero h1 {
-  font-size: 2em;
-  margin-bottom: 10px;
+.hero-content h1 {
+  font-size: 2.3rem;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
-.hero p {
-  font-size: 1em;
+.hero-content p {
+  font-size: 1rem;
   margin-bottom: 20px;
+  color: #f1f1f1;
 }
 
-.btn {
-  background-color: transparent;
-  color: white;
-  border: 1.5px solid white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
+/* === ANIMACIONES === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.btn:hover {
-  background-color: white;
-  color: black;
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .navbar ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero {
+    margin: 15px 20px;
+    height: 55vh;
+  }
+
+  .hero-content {
+    padding: 25px 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.6rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .logout-btn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
 }
