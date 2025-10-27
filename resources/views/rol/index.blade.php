@@ -3,7 +3,7 @@
 @section('titulo','roles')
 
 @section('contenido') 
-
+<link rel="stylesheet" href="{{ asset('css/rol.css') }}">
 @if (session(key: 'autorizacion'))
 <div class="alerta-error">
 {{ session(key: 'autorizacion')}}
@@ -13,26 +13,42 @@
     <main class="content">
     <div class="header-section">
       <h1>Gestión de Roles</h1>
-      <button class="btn-add">+ Agregar Rol</button>
+      
+      <a class="btn-add" href="{{ route('index.crear.rol') }}">+ Agregar Rol</a>
     </div>
 
     <table class="roles-table">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Nombre del Rol</th>       
+          <th>Nombre</th>       
           <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
+
+        @foreach ($datos as $dato)
         <tr>
-          <td>1</td>
-          <td>Administrador</td>         
-          <td>
-            <button class="btn-edit">Editar</button>
-            <button class="btn-delete">Eliminar</button>
+          <td>{{ $dato->id }}</td>
+          <td>{{ $dato->nombre }}</td>
+          <td class="acciones">
+          
+          <form action="{{ route('index.editar.rol') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $dato->id }}">  
+                            <button class="btn-edit" type="submit">Editar</button>
+                        </form>
+
+                        <form action="{{ route('eliminar.rol') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $dato->id }}">  
+                            <button class="btn-delete" type="submit">Eliminar</button>
+                        </form>
+
           </td>
-        </tr>    
+        </tr>       
+        @endforeach
+
       </tbody>
     </table>
   </main>

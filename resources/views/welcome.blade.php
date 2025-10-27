@@ -10,28 +10,28 @@
     <!-- NAVBAR -->
     <header class="navbar">
         <div class="logo">
-            <img src="{{ asset('storage/general/logo.png') }}" alt="Logo Tazón Criollo">
+            <img src="{{ asset('storage/general/logo.png') }}" alt="Logo Tazón Criollo" class="logo-circle">
             <h1>TAZÓN CRIOLLO</h1>
         </div>
         <nav class="menu">
             <a href="#">Inicio</a>
-            <a href="#">Menú</a>
+            <a href="#">ubicación</a>
             <a href="#">Nosotros</a>
             <a href="#">Contacto</a>
         </nav>
         <div class="login-btn">
-            <a href="{{ route('login') }}">Acceseder</a>
+            <a href="{{ route('login') }}">Acceder</a>
         </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
-        <img src="{{ asset('storage/general/fondo.png') }}" alt="Fondo Tazón Criollo" class="hero-img">
+        <img src="{{ asset('storage/general/fondo.png') }}" alt="Fondo Tazón Criollo" class="hero-bg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h2>El sabor criollo que te hace sentir en casa</h2>
             <p>Disfruta platos tradicionales con un toque moderno. Frescos, sabrosos y 100% bolivianos.</p>
-            <a href="#" class="btn-reservar">Ver Menú</a>
+            <a href="#" class="btn-reservar">Ver Carta</a>
         </div>
     </section>
 
@@ -61,7 +61,7 @@
         .navbar {
             position: sticky;
             top: 0;
-            background-color: #fff;
+            background-color: #b16708;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,7 +76,7 @@
             gap: 10px;
         }
 
-        .logo img {
+        .logo-circle {
             width: 55px;
             height: 55px;
             border-radius: 50%;
@@ -86,7 +86,7 @@
         .logo h1 {
             font-size: 1.3rem;
             font-weight: 600;
-            color: #b35b00;
+            color: #f1f1f1;
             letter-spacing: 0.5px;
         }
 
@@ -97,7 +97,7 @@
 
         .menu a {
             text-decoration: none;
-            color: #333;
+            color: #ffffff;
             font-weight: 500;
             position: relative;
             transition: color 0.3s;
@@ -123,8 +123,8 @@
         }
 
         .login-btn a {
-            background-color: #b35b00;
-            color: #fff;
+            background-color: #e97c00f8;
+            color: #ffffff;
             padding: 10px 22px;
             border-radius: 8px;
             text-decoration: none;
@@ -149,7 +149,8 @@
             overflow: hidden;
         }
 
-        .hero-img {
+        .hero-bg {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -159,7 +160,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            background: linear-gradient(180deg, rgba(250, 245, 245, 0.3), rgba(0,0,0,0.6));
         }
 
         .hero-content {
@@ -176,11 +177,13 @@
             font-size: 2.2rem;
             margin-bottom: 15px;
             line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-content p {
             font-size: 1.05rem;
             margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         .btn-reservar {
@@ -191,11 +194,14 @@
             border-radius: 6px;
             font-weight: 500;
             transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .btn-reservar:hover {
             background-color: #8c4600;
             transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
 
         /* FOOTER */

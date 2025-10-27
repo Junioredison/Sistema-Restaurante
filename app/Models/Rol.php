@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rol extends Model
 {
     protected $fillable = [ //todos los atributos usados para crear 
-        'name',
+        'nombre',
     ];
     protected $hidden = [ // todos los atributos que trae el get y que no quiero que se muestren
         'created_at',
@@ -18,7 +18,7 @@ class Rol extends Model
     public function Toshow(): array
     {
         return [
-            'name' => $this->name,
+            'nombre' => $this->name,
         ];
     }
 

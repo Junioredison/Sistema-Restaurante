@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string(column:'nombre');
-            $table->text(column:'descripcion');
-            $table->decimal(column:'precio', total: 8, places: 2);
-            $table->boolean(column:'disponibilidad'); // disponible o no disponible
+            $table->string('nombre');
+            $table->text('descripcion');
+            $table->decimal('precio', 8, 2);
+            $table->boolean('disponibilidad'); // disponible o no disponible
+            $table->string('foto')->nullable(); // ruta de la imagen del plato
             $table->softDeletes();
         });
     }

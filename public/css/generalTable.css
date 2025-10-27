@@ -1,0 +1,560 @@
+/* === CONTENEDOR PRINCIPAL OSCURO === */
+.content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #2c2c2c, #3a3a3a);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+}
+
+/* Encabezado */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* === TABLA ESTILO OSCURO === */
+.roles-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a2a2a;
+  color: #eee;
+}
+
+.roles-table thead {
+  background: #111;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.roles-table th,
+.roles-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.roles-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Bordes suaves y animación */
+.roles-table,
+.content {
+  transition: all 0.3s ease;
+}
+
+/* === BOTÓN AGREGAR AJUSTADO AL NUEVO FONDO === */
+.btn-add {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(232, 123, 0, 0.3);
+}
+
+.btn-add:hover {
+  background: linear-gradient(135deg, #8c4600, #b35b00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(232, 123, 0, 0.4);
+}
+
+
+.roles-table th, .roles-table td {
+    vertical-align: middle !important;
+}
+
+.alerta-error {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    }
+
+/* === MODALES PERSONALIZADOS === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  backdrop-filter: blur(2px);
+}
+
+.modal-contenido {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 25px 30px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+  color: #b35b00;
+  font-weight: 600;
+}
+
+.btn-cerrar {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #555;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-cerrar:hover {
+  transform: scale(1.2);
+  color: #b35b00;
+}
+
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.campo-form label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.campo-form input,
+.campo-form select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.campo-form input:focus,
+.campo-form select:focus {
+  border-color: #b35b00;
+  box-shadow: 0 0 4px rgba(179, 91, 0, 0.3);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-cancelar,
+.btn-guardar {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-cancelar {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-guardar {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+  color: white;
+}
+
+.btn-cancelar:hover {
+  background-color: #aaa;
+}
+
+.btn-guardar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(179, 91, 0, 0.3);
+}
+
+/* === ANIMACIÓN SUAVE === */
+@keyframes modalFadeIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+
+}
+  /* === BOTONES DE ACCIONES (Editar / Eliminar) === */
+.btn-edit, 
+.btn-delete {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Editar --- */
+.btn-edit {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #8c4600, #a85500);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(179, 91, 0, 0.3);
+}
+
+/* --- Eliminar --- */
+.btn-delete {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #b02a37, #801f28);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(176, 42, 55, 0.4);
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* === ENCABEZADO === */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-section h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* === TABLA GENERAL === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(30, 30, 30, 0.9);
+  color: #eee;
+}
+
+thead {
+  background: #1a1a1a;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+th,
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+}
+
+/* === BOTÓN AGREGAR === */
+.btn-add {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(232, 123, 0, 0.3);
+}
+
+.btn-add:hover {
+  background: linear-gradient(135deg, #8c4600, #b35b00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(232, 123, 0, 0.4);
+}
+
+/* === BOTONES DE ACCIÓN === */
+.btn-edit,
+.btn-delete {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Editar --- */
+.btn-edit {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #8c4600, #a85500);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(179, 91, 0, 0.3);
+}
+
+/* --- Eliminar --- */
+.btn-delete {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #b02a37, #801f28);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(176, 42, 55, 0.4);
+}
+
+/* === ALERTAS === */
+.alert-success,
+.alert-danger {
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
+}
+
+.alert-success {
+  background-color: #198754;
+  color: #fff;
+}
+
+.alert-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* === ENCABEZADO DE SECCIÓN (TÍTULO + BOTÓN) === */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* === BOTÓN NARANJA "AGREGAR MENÚ" === */
+.header-section .btn {
+  background: linear-gradient(135deg, #e87b00, #b35b00);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(232, 123, 0, 0.3);
+}
+
+.header-section .btn:hover {
+  background: linear-gradient(135deg, #b35b00, #8c4600);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(179, 91, 0, 0.4);
+}
+
+.header-section .btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+ 
+/* === MODAL OSCURO === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+  backdrop-filter: blur(3px);
+}
+
+.modal-contenido {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 25px 30px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: modalFadeIn 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.modal-header h2 {
+  font-size: 1.3rem;
+  color: #b35b00;
+  font-weight: 600;
+}
+
+.btn-cerrar {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #444;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+
+.btn-cerrar:hover {
+  transform: scale(1.2);
+  color: #b35b00;
+}
+
+/* === CAMPOS DEL FORMULARIO === */
+.campo-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.campo-form label {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.campo-form input,
+.campo-form select {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.campo-form input:focus,
+.campo-form select:focus {
+  border-color: #b35b00;
+  box-shadow: 0 0 4px rgba(179, 91, 0, 0.3);
+}
+
+/* === BOTONES DEL MODAL === */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn-cancelar,
+.btn-guardar {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancelar {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-guardar {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+  color: white;
+}
+
+.btn-cancelar:hover {
+  background-color: #aaa;
+}
+
+.btn-guardar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(179, 91, 0, 0.3);
+}
+
+/* === ANIMACIÓN DE APARICIÓN === */
+@keyframes modalFadeIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

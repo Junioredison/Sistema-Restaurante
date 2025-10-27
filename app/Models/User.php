@@ -43,9 +43,16 @@ class User extends Authenticatable
     public function Toshow(): array
     {
         return [
-            'username' => $this->username,
-            'email' => $this->email,
-            'rol' => $this->rol->name ?? null, // Accede al nombre del rol relacionado
+            'id'        => $this->id,
+            'usuario'  =>  $this->username,
+            'email'     => $this->email,
+            'rol'       => $this->rol->nombre ?? null, // Accede al nombre del rol relacionado
         ];
     }
+
+    public function getAuthIdentifierName()
+    {
+        return 'username';
+    }
+
 }

@@ -19,7 +19,7 @@ body {
 }
 
 .logo {
-  height: 60px;
+  height: 95px;
 }
 
 /* Navbar */
@@ -151,4 +151,49 @@ body {
 
 .btn-delete:hover {
   background-color: #b02a37;
+}
+
+/* === BOTONES DE ACCIÓN (EDITAR / ELIMINAR) === */
+.btn-edit,
+.btn-delete {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-transform: capitalize;
+}
+
+/* --- Editar --- */
+.btn-edit {
+  background: linear-gradient(135deg, #b35b00, #e87b00);
+}
+
+.btn-edit:hover {
+  background: linear-gradient(135deg, #8c4600, #a85500);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(179, 91, 0, 0.3);
+}
+
+/* --- Eliminar --- */
+.btn-delete {
+  background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #b02a37, #801f28);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(176, 42, 55, 0.4);
+}
+
+/* --- Alinear botones en celda --- */
+.acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }

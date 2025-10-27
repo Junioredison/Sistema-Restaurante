@@ -29,9 +29,9 @@ class AuthController extends Controller
          }
             $credentials = $request->only('username', 'password');
             
-            if (Auth::guard('web')->attempt($credentials)) {
-                Cache::put('persona',$user);
-                return redirect()->route('mostrar.rol');
+            if (Auth::guard('web')->attempt($credentials)){ 
+            Cache::put('persona', $user);
+            return redirect()->route('mostrar.rol');
             }
             else
             {
