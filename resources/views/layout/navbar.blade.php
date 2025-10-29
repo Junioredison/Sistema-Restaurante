@@ -58,6 +58,11 @@
       <li><a href="{{ route('mostrar.mesa') }}">
         <span class="nav-icon">🪑</span>
         <span>Mesas</span>
+      </a></li>
+      <li><a href="{{ route('mostrar.pedido') }}">
+        <span class="nav-icon">🧾</span>
+        <span>Pedidos</span>
+
     </ul>
 
     <div class="nav-right">

@@ -18,4 +18,10 @@ class Menu extends Model
         'disponibilidad',
         'foto',
     ];
+
+    public function detalles()
+    {
+        return $this->hasMany(PedidoDetalle::class);
+    }
+
 }

@@ -20,4 +20,10 @@ class Mesa extends Model
         'capacidad',
         'estado'
     ];
+
+    public function pedidos()
+    {
+        return $this->hasMany(Pedido::class);
+    }
+
 }

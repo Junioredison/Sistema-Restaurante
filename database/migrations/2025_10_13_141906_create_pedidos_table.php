@@ -6,25 +6,19 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mesa_id')->constrained('mesas')->onDelete('cascade');
+            $table->foreignId('trabajador_id')->nullable()->constrained('trabajadors')->onDelete('set null');
+            $table->decimal('total', 8, 2)->default(0);
+            $table->string('estado')->default('Pendiente'); // pendiente, en proceso, completado, cancelado
             $table->timestamps();
-            $table->decimal(column:'total', total: 8, places: 2);
-            $table->string(column:'estado'); // pendiente, en proceso, completado, cancelado
-            $table->foreignId(column: 'mesa_id')->constrained(table: 'mesas')->onDelete(action: 'cascade');
-            $table->foreignId(column: 'trabajador_id')->constrained(table: 'trabajadors')->onDelete(action: 'cascade');
             $table->softDeletes();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('pedidos');

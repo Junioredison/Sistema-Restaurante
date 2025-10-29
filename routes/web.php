@@ -52,12 +52,15 @@ Route::prefix('/mesa')-> group(function () {
     Route::post("/eliminar",[MesaController::class,'destroy'])->name('eliminar.mesa');
 });
 
-Route::prefix('/pedido')-> group(function () { 
-    Route::get("/",[PedidoController::class,'index'])->name('mostrar.pedido');
-    Route::post("/",[PedidoController::class,'store'])->name('crear.pedido');
-    Route::post("/editar",[PedidoController::class,'update'])->name('editar.pedido');
-    Route::post("/eliminar",[PedidoController::class,'destroy'])->name('eliminar.pedido');
+Route::prefix('/pedido')->group(function () { 
+    Route::get("/", [PedidoController::class, 'index'])->name('mostrar.pedido');
+    Route::post("/", [PedidoController::class, 'store'])->name('crear.pedido');
+    Route::post("/editar", [PedidoController::class, 'update'])->name('editar.pedido');
+    Route::post("/eliminar", [PedidoController::class, 'destroy'])->name('eliminar.pedido');
+    Route::post('/cambiar-estado', [PedidoController::class, 'cambiarEstado'])->name('cambiar.estado.pedido');
+
 });
+
 
 Route::prefix('/menu')-> group(function () { 
     Route::get("/",[MenuController::class,'index'])->name('mostrar.menu');

@@ -558,3 +558,17 @@ tbody tr:hover {
     opacity: 1;
   }
 }
+
+.estado-select {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #777;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.estado-select:focus {
+  outline: none;
+  border-color: #00e078;
+}
